@@ -1,0 +1,16 @@
+@startuml
+participant Caller
+participant AlgorithmsIterative
+participant AlgorithmsIterativeTest
+
+Caller -> AlgorithmsIterative: Create AlgorithmsIterative object
+Caller -> AlgorithmsIterative: Set input parameter n
+AlgorithmsIterative -> AlgorithmsIterative: Call iterativeMetodForFabionacciNumber method
+AlgorithmsIterative -> Caller: Receive result
+AlgorithmsIterativeTest -> AlgorithmsIterative: Compare result with expected value
+alt Result is as expected
+  AlgorithmsIterativeTest --> Caller: Test passed
+else Result is not as expected
+  AlgorithmsIterativeTest --> Caller: Test failed
+end
+@enduml

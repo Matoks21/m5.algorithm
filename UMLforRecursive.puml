@@ -1,0 +1,33 @@
+
+@startuml
+
+start
+:Call recursiveMetodForFabionacciNumber method;
+:Call numberIsNatural method
+:Check if n is natural;
+if (n < 0) then (yes)
+  :Throw IllegalArgumentException;
+else (no)
+  if (n <= 1) then (yes)
+    :Return n;
+  else (no)
+    :Call recursiveMetodForFabionacciNumber(n - 2);
+    :Call recursiveMetodForFabionacciNumber(n - 1);
+    :Return sum of results;
+  endif
+endif
+stop
+start
+:Create AlgorithmsRecursive object;
+:Set input parameter n;
+:Call recursiveMetodForFabionacciNumber method;
+:Receive result;
+:Compare result with expected value in AlgorithmRecursiveTest class;
+if (Result is as expected) then (yes)
+  :Test passed;
+else (no)
+  :Test failed;
+endif
+stop
+
+@enduml

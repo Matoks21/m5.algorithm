@@ -1,0 +1,23 @@
+@startuml
+participant AlgorithmRecursiveTest
+participant AlgorithmsRecursive
+
+group Initialization
+    AlgorithmRecursiveTest -> AlgorithmsRecursive: Create AlgorithmsRecursive object
+    AlgorithmsRecursive -> AlgorithmsRecursive: Call recursiveMetodForFabionacciNumber(6)
+end
+
+group Recursion
+    AlgorithmsRecursive -> AlgorithmsRecursive: Call numberIsNatural(6)
+    loop n > 1
+        alt n > 1
+            AlgorithmsRecursive -> AlgorithmsRecursive: Call recursiveMetodForFabionacciNumber(4)
+            AlgorithmsRecursive -> AlgorithmsRecursive: Call recursiveMetodForFabionacciNumber(5)
+        else n <= 1
+            break
+        end
+    end
+end
+
+AlgorithmRecursiveTest -> AlgorithmsRecursive: Compare result with expected value
+@enduml

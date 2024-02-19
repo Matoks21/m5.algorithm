@@ -1,0 +1,34 @@
+
+@startuml
+
+start
+:Call dynamicProgMetodForFabionacciNumber method;
+:Call numberIsNatural method
+:Check if n is natural;
+if (n < 0) then (yes)
+  :Throw IllegalArgumentException;
+else (no)
+  :Create list;
+  :Add first two Fibonacci numbers to list;
+  while (i <= n)
+    :Calculate next Fibonacci number;
+    :Add it to the list;
+  endwhile
+  :Return Fibonacci number for n;
+endif
+stop
+
+start
+:Create AlgorithmsDynamicProg object;
+:Set input parameter n;
+:Call dynamicProgMetodForFabionacciNumber method;
+:Receive result;
+:Compare result with expected value in AlgorithmDynamicProgTest class;
+if (Result is as expected) then (yes)
+  :Test passed;
+else (no)
+  :Test failed;
+endif
+stop
+
+@enduml

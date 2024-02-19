@@ -1,0 +1,33 @@
+
+@startuml
+
+start
+:Call iterativeMetodForFabionacciNumber method;
+:Call numberIsNatural method
+:Check if n is natural;
+if (n < 0) then (yes)
+  :Throw IllegalArgumentException;
+else (no)
+  :Initialize fabionacci0 = 0;
+  :Initialize fabionacci1 = 1;
+  while (i <= n)
+    :Calculate next Fibonacci number;
+    :Update fabionacci0 and fabionacci1;
+  endwhile
+  :Return fabionacci1;
+endif
+stop
+start
+:Create AlgorithmsIterative object;
+:Set input parameter n;
+:Call iterativeMetodForFabionacciNumber method;
+:Receive result;
+:Compare result with expected value in AlgorithmsIterativeTest class;
+if (Result is as expected) then (yes)
+  :Test passed;
+else (no)
+  :Test failed;
+endif
+stop
+
+@enduml

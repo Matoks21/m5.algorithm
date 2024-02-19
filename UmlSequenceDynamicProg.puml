@@ -1,0 +1,34 @@
+
+@startuml
+
+participant Caller
+participant AlgorithmsDynamicProg
+participant AlgorithmDynamicProgTest
+
+Caller -> AlgorithmsDynamicProg: Call dynamicProgMetodForFabionacciNumber method
+Caller -> AlgorithmsDynamicProg: Call numberIsNatural method
+AlgorithmsDynamicProg -> AlgorithmsDynamicProg: Check if n is natural
+alt n < 0
+    AlgorithmsDynamicProg -> Caller: Throw IllegalArgumentException
+else
+    AlgorithmsDynamicProg -> AlgorithmsDynamicProg: Create list
+    AlgorithmsDynamicProg -> AlgorithmsDynamicProg: Add first two Fibonacci numbers to list
+   loop (i <= n)
+        AlgorithmsDynamicProg -> AlgorithmsDynamicProg: Calculate next Fibonacci number
+        AlgorithmsDynamicProg -> AlgorithmsDynamicProg: Add it to the list
+    end
+    AlgorithmsDynamicProg -> Caller: Return Fibonacci number for n
+end
+
+Caller -> AlgorithmsDynamicProg: Create AlgorithmsDynamicProg object
+Caller -> AlgorithmsDynamicProg: Set input parameter n
+Caller -> AlgorithmsDynamicProg: Call dynamicProgMetodForFabionacciNumber method
+AlgorithmsDynamicProg -> Caller: Receive result
+Caller -> AlgorithmDynamicProgTest: Compare result with expected value in AlgorithmDynamicProgTest class
+alt Result is as expected
+    Caller -> Caller: Test passed
+else
+    Caller -> Caller: Test failed
+end
+
+@enduml
